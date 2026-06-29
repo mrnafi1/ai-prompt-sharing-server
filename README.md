@@ -7,7 +7,7 @@ server-side search/filter/sort/pagination, bookmarks, reviews, reports,
 Stripe payments, and admin moderation/analytics.
 
 ## Live URL
-> Add your deployed Render URL here once deployed.
+**Frontend**: https://ai-prompt-sharing-client-nine.vercel.app/
 
 ## Key Features
 - JWT issued on login/register, verified via httpOnly cookie on every
