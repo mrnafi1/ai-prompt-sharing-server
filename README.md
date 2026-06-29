@@ -7,7 +7,8 @@ server-side search/filter/sort/pagination, bookmarks, reviews, reports,
 Stripe payments, and admin moderation/analytics.
 
 ## Live URL
-**Frontend**: https://ai-prompt-sharing-client-nine.vercel.app/
+**Backend API**: https://ai-prompt-sharing-server.onrender.com
+**Frontend**: https://ai-prompt-sharing-client-nine.vercel.app
 
 ## Key Features
 - JWT issued on login/register, verified via httpOnly cookie on every
