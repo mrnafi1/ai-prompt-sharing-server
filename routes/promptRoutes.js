@@ -115,7 +115,7 @@ router.get("/prompts/featured", async (req, res) => {
   const { promptsCollection } = getCollections();
   const prompts = await promptsCollection
     .find({ status: "approved", visibility: "public" })
-    .sort({ copyCount: -1 })
+    .sort({ featured: -1, copyCount: -1 })
     .limit(6)
     .toArray();
   res.send(prompts);

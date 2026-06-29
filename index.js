@@ -11,6 +11,7 @@ const reviewRoutes = require("./routes/reviewRoutes");
 const bookmarkRoutes = require("./routes/bookmarkRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -30,8 +31,7 @@ app.use(reviewRoutes);
 app.use(bookmarkRoutes);
 app.use(reportRoutes);
 app.use(paymentRoutes);
-// Admin-only routes (approve/reject prompts, manage users/payments/reports,
-// platform analytics) are added here on Day 4 — see the roadmap.
+app.use(adminRoutes);
 
 async function start() {
   await connectDB();
