@@ -2,21 +2,15 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 
-const cookieOptions = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-};
-
 // Called right after a successful Firebase login/register on the client.
+// Returns the token in the response body — the client stores it in
+// localStorage and attaches it as a Bearer header on future requests.
+// (We moved off httpOnly cookies because they get silently dropped by
+// browsers when the client and server are on different domains.)
 router.post("/jwt", (req, res) => {
   const { email } = req.body;
   const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "7d" });
-  res.cookie("token", token, cookieOptions).send({ success: true });
-});
-
-router.post("/logout", (req, res) => {
-  res.clearCookie("token", cookieOptions).send({ success: true });
+  res.send({ token });
 });
 
 module.exports = router;
